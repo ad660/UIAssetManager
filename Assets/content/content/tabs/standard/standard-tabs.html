@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../global.css">
+    <title>Tabs Standard</title>
+</head>
+<body>
+
+    <style>
+        * {
+  box-sizing: border-box;
+}
+body {
+  line-height: 1.618em;
+}
+.olexe-stable-wrapper {
+  max-width: 50rem;
+  width: 100%;
+}
+.tabs {
+  border: 3px solid var(--olexe-dark-pink);
+  position: relative;
+  background: var(--olexe-dark-pink);
+  height: 14.75rem;
+  margin-bottom: 1rem;
+}
+.tabs::before,
+.tabs::after {
+  content: "";
+  display: table;
+}
+.tabs::after {
+  clear: both;
+}
+.tab {
+  float: left;
+}
+.tab-switch {
+  display: none;
+}
+.tab-label {
+  position: relative;
+  display: block;
+  line-height: 2.75em;
+  height: 3em;
+  padding: 0 1.618em;
+  background: var(--olexe-dark-pink);
+  border-right: 0.125rem solid rgb(94, 1, 57);
+  color: #fff;
+  cursor: pointer;
+  top: 0;
+  transition: all 0.25s;
+}
+.tab-label:hover {
+  top: -0.25rem;
+  transition: top 0.25s;
+}
+.tab-content {
+  height: 12rem;
+  position: absolute;
+  z-index: 1;
+  top: 2.75em;
+  left: 0;
+  padding: 1.618rem;
+  background: #fff;
+  color: #2c3e50;
+  border-bottom: 0.25rem solid var(--olexe-dark-pink);
+  opacity: 0;
+  transition: all 0.35s;
+}
+.tab-switch:checked + .tab-label {
+  background: #fff;
+  color: #2c3e50;
+  border-bottom: 0;
+  border-right: 0.125rem solid #fff;
+  transition: all 0.35s;
+  z-index: 1;
+  top: -0.0625rem;
+}
+.tab-switch:checked + label + .tab-content {
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.35s;
+}
+    </style>
+   
+
+      
+      <div class="olexe-stable-wrapper">
+          <div class="tabs">
+            <div class="tab">
+              <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+              <label for="tab-1" class="tab-label">Tab One</label>
+              <div class="tab-content">My father had a small estate in Nottinghamshire: I was the third of five sons. He sent me to Emanuel College in Cambridge at fourteen years old, where I resided three years, and applied myself close to my studies; but the charge of maintaining me, although I had a very scanty allowance, being too great for a narrow fortune, I was bound apprentice to Mr. James Bates, an eminent surgeon in London, with whom I continued four years. </div>
+            </div>
+            <div class="tab">
+              <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+              <label for="tab-2" class="tab-label">Tab Two</label>
+              <div class="tab-content">My father now and then sending me small sums of money, I laid them out in learning navigation, and other parts of the mathematics, useful to those who intend to travel, as I always believed it would be, some time or other, my fortune to do. </div>
+            </div>
+            <div class="tab">
+              <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+              <label for="tab-3" class="tab-label">Tab Three</label>
+              <div class="tab-content">When I left Mr. Bates, I went down to my father: where, by the assistance of him and my uncle John, and some other relations, I got forty pounds, and a promise of thirty pounds a year to maintain me at Leyden: there I studied physic two years and seven months, knowing it would be useful in long voyages.</div>
+            </div>
+          </div>
+
+          <div class="olexe-get-code-container">
+          <button id="olexeOpenModalBtn">Get the code</button>
+      </div>
+
+
+
+        <!-- MODAL HTML -->
+
+
+
+        <div id="olexe-modal" class="olexe-modal">
+            <div class="olexe-modal-content">
+                <!-- <span class="olexe-modal-close">&times;</span> -->
+                <div class="code-box">
+                    <pre><code>Lorem ipsum dolor sit amet consectetur, adipisicing elit. N</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+<script>
+    
+            // GET CODE SCRIPT 
+
+
+            // Get the copy button element
+            var copyButton = document.querySelector('.copy-button');
+
+            // Add a click event listener to the copy button
+            copyButton.addEventListener('click', function () {
+                // Get the code element containing the code to be copied
+                var codeElement = copyButton.previousElementSibling.querySelector('code');
+
+                // Create a range object for the code element
+                var range = document.createRange();
+                range.selectNode(codeElement);
+
+                // Select the range
+                window.getSelection().removeAllRanges(); // clear any existing selection
+                window.getSelection().addRange(range);
+
+                // Copy the selected text to the clipboard
+                document.execCommand('copy');
+
+                // Deselect the range
+                window.getSelection().removeAllRanges();
+
+                // Update the text of the copy button to show that the code has been copied
+                copyButton.innerHTML = 'Copied!';
+
+                // Reset the text of the copy button after 2 seconds
+                setTimeout(function () {
+                    copyButton.innerHTML = 'Copy';
+                }, 2000);
+            });
+
+            // MODAL SCRIPT
+
+            // Get the modal element
+            var olexeModal = document.getElementById("olexe-modal");
+
+            // Get the button that opens the modal
+            var olexeOpenModalBtn = document.getElementById("olexeOpenModalBtn");
+
+            // Get the <span> element that closes the modal
+            var olexeCloseBtn = document.getElementsByClassName("olexe-modal-close")[0];
+
+            // Open the modal when the button is clicked
+            olexeOpenModalBtn.onclick = function () {
+                olexeModal.style.display = "block";
+            };
+
+            // Close the modal when the <span> (x) is clicked
+            // olexeCloseBtn.onclick = function () {
+            //   olexeModal.style.display = "none";
+            // };
+
+            // Close the modal when the user clicks outside of it
+            window.onclick = function (event) {
+                if (event.target == olexeModal) {
+                    olexeModal.style.display = "none";
+                }
+            };
+
+</script>
+</body>
+</html>

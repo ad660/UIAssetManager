@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../global.css">
+    <title>Flipcard</title>
+</head>
+
+<body>
+
+    <style>
+        .olexe-flipContainer {
+            background-color: transparent;
+            width: 310px;
+            height: 500px;
+            perspective: 1000px;
+            margin-bottom: 15px;
+            /* Remove this if you don't want the 3D effect */
+        }
+
+        .olexe-cardContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border: 1px solid transparent;
+        }
+
+
+        .flip180 {
+            transform: rotateY(180deg);
+        }
+
+        .olexe-frontFlip,
+        .olexe-backFlip {
+            border-radius: 15px;
+            box-shadow: var(--olexe-box-shadow-1);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+        }
+
+        .olexe-frontFlip {
+            background-color: var(--olexe-white);
+            color: black;
+        }
+
+        .olexe-frontFlip p,
+        .olexe-backFlip p {
+            padding: 35px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+
+
+        .olexe-backFlip {
+            background-color: var(--olexe-dark-pink);
+            color: var(--olexe-white);
+            transform: rotateY(180deg);
+        }
+
+        .olexe-flex {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            .olexe-flex {
+                flex-direction: column;
+            }
+        }
+
+        .olexe-front-img {
+            width: 310px;
+            height: 500px;
+            perspective: 1000px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .olexe-flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+    <div class="olexe-flex-column">
+        <div class="olexe-flex">
+            <div class="olexe-flipContainer">
+                <div class="olexe-cardContainer" id="olexe-cardContainer">
+                    <div class="olexe-frontFlip">
+                        <div>
+                            <img class="olexe-front-img" src="https://i.loli.net/2019/11/23/cnKl1Ykd5rZCVwm.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="olexe-backFlip">
+                        <h1>Back of card</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores vero tempore hic recusandae
+                            omnis dolor eum dolorum ipsam magnam amet?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button -->
+
+        <div class="olexe-get-code-container">
+            <button id="olexeOpenModalBtn">Get the code</button>
+        </div>
+
+        <!-- MODAL HTML -->
+
+
+
+        <div id="olexe-modal" class="olexe-modal">
+            <div class="olexe-modal-content">
+                <!-- <span class="olexe-modal-close">&times;</span> -->
+                <div class="code-box">
+                    <pre><code>Lorem ipsum dolor sit amet consectetur, adipisicing elit. N</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Beginning of javascript -->
+        <script>
+            var olexeCard = document.querySelectorAll(".olexe-cardContainer")
+
+
+            function olexeFlipCard() {
+                this.classList.toggle("flip180")
+            }
+
+            olexeCard.forEach(LXcard => {
+                LXcard.addEventListener('click', olexeFlipCard)
+            })
+
+
+            // GET CODE SCRIPT 
+
+
+            // Get the copy button element
+            var copyButton = document.querySelector('.copy-button');
+
+            // Add a click event listener to the copy button
+            copyButton.addEventListener('click', function () {
+                // Get the code element containing the code to be copied
+                var codeElement = copyButton.previousElementSibling.querySelector('code');
+
+                // Create a range object for the code element
+                var range = document.createRange();
+                range.selectNode(codeElement);
+
+                // Select the range
+                window.getSelection().removeAllRanges(); // clear any existing selection
+                window.getSelection().addRange(range);
+
+                // Copy the selected text to the clipboard
+                document.execCommand('copy');
+
+                // Deselect the range
+                window.getSelection().removeAllRanges();
+
+                // Update the text of the copy button to show that the code has been copied
+                copyButton.innerHTML = 'Copied!';
+
+                // Reset the text of the copy button after 2 seconds
+                setTimeout(function () {
+                    copyButton.innerHTML = 'Copy';
+                }, 2000);
+            });
+
+            // MODAL SCRIPT
+
+            // Get the modal element
+            var olexeModal = document.getElementById("olexe-modal");
+
+            // Get the button that opens the modal
+            var olexeOpenModalBtn = document.getElementById("olexeOpenModalBtn");
+
+            // Get the <span> element that closes the modal
+            var olexeCloseBtn = document.getElementsByClassName("olexe-modal-close")[0];
+
+            // Open the modal when the button is clicked
+            olexeOpenModalBtn.onclick = function () {
+                olexeModal.style.display = "block";
+            };
+
+            // Close the modal when the <span> (x) is clicked
+            // olexeCloseBtn.onclick = function () {
+            //   olexeModal.style.display = "none";
+            // };
+
+            // Close the modal when the user clicks outside of it
+            window.onclick = function (event) {
+                if (event.target == olexeModal) {
+                    olexeModal.style.display = "none";
+                }
+            };
+
+        </script>
+</body>
+
+</html>

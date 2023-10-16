@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Input VI</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../flipcards/standards/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <!-- <h2>Please input your text here</h2>
+    <input type="text" id="olexe-input-UI">
+    <button id="update-text-input">Add text</button> -->
+    <div>
+
+        <div class="aside-container">
+            <aside class="olexe-aside-style">
+                <div class="olexe-flex">
+                    <i class="fa-solid fa-laptop-code fa-2x fa-white"></i>
+                    <h2>LXI UI</h2>
+                </div>
+                <nav>
+                    <ul class="ul-lxi-nav">
+                        <li class="main-menu">
+                            <a href="">Flip Card</a>
+                            <ul id="submenu-1" class="sub-menu">
+                                <li><a href="./content/flipcards/standard/flip-standard.html"
+                                        onclick="lxiLoad(event, 'flip-standard')">Standard</a></li>
+                                <li><a href="./content/flipcards/image/flipcard-image.html"
+                                        onclick="lxiLoad(event, 'flip-image')">Image</a></li>
+                            </ul>
+                        </li>
+                        <li class="main-menu" onclick="changeTab(2)">
+                            <a href="#">Accordion</a>
+                            <ul id="submenu-2" class="sub-menu">
+                                <li><a href="./content/accordion/standard/accordion-standard.html"
+                                        onclick="lxiLoad(event, 'accordion-standard')">Standard</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="main-menu" onclick="changeTab(2)">
+                            <a href="#">Animations</a>
+                            <ul id="submenu-2" class="sub-menu">
+                                <li><a href="./content/letter/letter.html"
+                                        onclick="lxiLoad(event, 'letter-animation')">Letter</a></li>
+                            </ul>
+                        </li>
+                  
+
+
+                        <li class="main-menu" onclick="changeTab(3)">
+                            <a href="">Tabs</a>
+                            <ul id="submenu-3" class="sub-menu">
+                                <li><a href="./content/tabs/standard/standard-tabs.html"
+                                        onclick="lxiLoad(event, 'tabs-standard')">Standard</a></li>
+                            </ul>
+                        </li>
+                        <li class="main-menu" onclick="changeTab(3)">
+                            <a href="">Tables</a>
+                            <ul id="submenu-4" class="sub-menu">
+                                <li><a href="#">Standard</a></li>
+                                <li><a href="./content/tables/glassmorphism/table-glassmorphism.html"
+                                        onclick="lxiLoad(event, 'glassmorphism')">Glassmorphism</a></li>
+                            </ul>
+                        </li>
+                        <li class="main-menu" onclick="changeTab(4)"><a href="#">Modal</a>
+                            <ul id="submenu-5" class="sub-menu">
+                                <li><a href="./content/modals/standard/standard-modal.html"
+                                        onclick="lxiLoad(event, 'standard-modal')">Standard</a></li>
+                                <li><a href="./content/modals/glassmorphism/glassmorphism-modal.html"
+                                        onclick="lxiLoad(event, 'standard-modal')">Glassmorphism</a></li>
+                            </ul>
+                        </li>
+                        <li class="main-menu" onclick="changeTab(3)">
+                            <a href="">Images/Galleries</a>
+                            <ul id="submenu-6" class="sub-menu">
+                                <li><a href="./content/imagesAndGalleries/hoverGallery/hover.html"
+                                        onclick="lxiLoad(event, 'accordion-standard')">Hover Gallery</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="main-menu" onclick="changeTab(3)">
+                            <a href="">Meet Team</a>
+                            <ul id="submenu-6" class="sub-menu">
+                                <li><a href="./content/meetTeam/meet_team_standard.html"
+                                        onclick="lxiLoad(event, 'meet-standard')">Learn more standard</a></li>
+                                <li><a href="./content/meetTeam/meet_team_horizonal.html"
+                                    onclick="lxiLoad(event, 'meet-standard')">Learn more horizontal</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <script src="./script.js"></script>
+            <!-- Flip card -->
+
+            <div id="content-area" class="olexe-element-container">
+
+                <!-- Content will be added here -->
+
+            </div>
+        </div>
+
+        <script src="./content/flipcards/standard/flipscript.js"></script>
+        <!-- End Flip Card -->
+
+
+</body>
+
+</html>

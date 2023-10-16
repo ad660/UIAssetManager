@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../global.css">
+    <title>Hover Gallery</title>
+</head>
+<body>
+    <style>
+    .olexe-acc-wrapper{
+  margin: 30px auto;
+  width:70%;
+  
+}
+
+.olexe-hover-gallery{
+  display:flex;
+  flex-wrap:nowrap;
+  overflow:hidden;
+  width:100%;
+  height:350px
+}
+
+.olexe-hover-gallery > div{
+  width:50%;
+  flex-grow:1;
+  flex-shrink:1;
+  overflow:hidden;
+  transition:all .5s ease;
+  border: 5px solid var(--olexe-dark-green);
+  border-radius:50px;
+  position:relative
+}
+
+.olexe-hover-gallery > div:hover{
+  flex-shrink:0
+}
+
+.olexe-hover-gallery div img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+    </style>
+
+<div class="olexe-flex-column">
+    <div class="olexe-acc-wrapper">
+        <div class="olexe-hover-gallery">
+          <div>
+            <img src="https://image.freepik.com/free-photo/lake-mountains_1204-507.jpg" alt="">
+          </div>
+          <div>
+            <img src="https://image.freepik.com/free-photo/sunlight-forest_1004-9.jpg" alt="">
+          </div>
+          <div>
+            <img src="https://image.freepik.com/free-photo/beautiful-green-park_1417-1443.jpg" alt="">
+          </div>
+          <div>
+            <img src="https://image.freepik.com/free-photo/waterfall-that-is-layer-thailand_1150-15650.jpg" alt="">
+          </div>
+          <div>
+            <img src="https://image.freepik.com/free-photo/sunrise-bali-jungle_1385-1644.jpg" alt="">
+          </div>
+          <div>
+            <img src="https://image.freepik.com/free-photo/grass-with-sunlight-countryside-suburban_53876-42989.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    
+        <!-- Button -->
+    
+        <div class="olexe-get-code-container">
+            <button id="olexeOpenModalBtn">Get the code</button>
+        </div>
+    
+        <!-- MODAL HTML -->
+    
+    
+    
+        <div id="olexe-modal" class="olexe-modal">
+            <div class="olexe-modal-content">
+                <!-- <span class="olexe-modal-close">&times;</span> -->
+                <div class="code-box">
+                    <pre><code>Lorem ipsum dolor sit amet consectetur, adipisicing elit. N</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+</div>
+
+  <script>
+    // GET CODE SCRIPT 
+
+
+            // Get the copy button element
+            var copyButton = document.querySelector('.copy-button');
+
+            // Add a click event listener to the copy button
+            copyButton.addEventListener('click', function () {
+                // Get the code element containing the code to be copied
+                var codeElement = copyButton.previousElementSibling.querySelector('code');
+
+                // Create a range object for the code element
+                var range = document.createRange();
+                range.selectNode(codeElement);
+
+                // Select the range
+                window.getSelection().removeAllRanges(); // clear any existing selection
+                window.getSelection().addRange(range);
+
+                // Copy the selected text to the clipboard
+                document.execCommand('copy');
+
+                // Deselect the range
+                window.getSelection().removeAllRanges();
+
+                // Update the text of the copy button to show that the code has been copied
+                copyButton.innerHTML = 'Copied!';
+
+                // Reset the text of the copy button after 2 seconds
+                setTimeout(function () {
+                    copyButton.innerHTML = 'Copy';
+                }, 2000);
+            });
+
+            // MODAL SCRIPT
+
+            // Get the modal element
+            var olexeModal = document.getElementById("olexe-modal");
+
+            // Get the button that opens the modal
+            var olexeOpenModalBtn = document.getElementById("olexeOpenModalBtn");
+
+            // Get the <span> element that closes the modal
+            var olexeCloseBtn = document.getElementsByClassName("olexe-modal-close")[0];
+
+            // Open the modal when the button is clicked
+            olexeOpenModalBtn.onclick = function () {
+                olexeModal.style.display = "block";
+            };
+
+            // Close the modal when the <span> (x) is clicked
+            // olexeCloseBtn.onclick = function () {
+            //   olexeModal.style.display = "none";
+            // };
+
+            // Close the modal when the user clicks outside of it
+            window.onclick = function (event) {
+                if (event.target == olexeModal) {
+                    olexeModal.style.display = "none";
+                }
+            };
+  </script>
+</body>
+</html>

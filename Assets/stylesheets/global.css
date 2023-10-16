@@ -1,0 +1,190 @@
+:root {
+
+    /* Colors */
+    --olexe-blue: rgb(8, 40, 82);
+    --olexe-light-blue: rgb(172, 208, 239);
+    
+    --olexe-pink: rgb(163, 0, 98);
+    --olexe-dark-pink: rgb(129, 1, 78);
+    --olexe-light-pink: rgb(240, 140, 200);
+    
+    --olexe-yellow: rgb(255, 235, 59);
+    --olexe-light-yellow: rgb(236, 255, 152);
+    
+    --olexe-green: rgb(0, 125, 105);
+    --olexe-dark-green: rgb(0, 60, 60);
+    --olexe-light-green: rgb(0, 120, 65);
+    --olexe-lightest-green: rgb(0, 200, 150);
+    
+    --olexe-black: rgb(0, 0, 0);
+    --olexe-white: rgb(255, 255, 255);
+
+    /* Shadow */
+
+    --olexe-box-shadow-1: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    --olexe-box-shadow-1-nc: 0px 3px 8px;
+
+    --olexe-box-shadow-2: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    --olexe-box-shadow-right: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    --olexe-box-shadow-bottom: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+}
+
+/* html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+   */
+
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+/* GLOBAL VARIABLES */
+
+
+/* FLEXBOX */
+
+.olexe-flex {
+  display: flex;
+}
+
+.olexe-flextext {
+  align-self: center;
+}
+
+.olexe-gap1 {
+  gap: 1.5rem;
+}
+
+.olexe-flex-col {
+  flex-direction: column;
+}
+
+/* GET CODE BUTTON STYLE */
+
+.code-box {
+  position: relative;
+
+}
+
+pre {
+  background-color: #2b2b2b;
+  color: #f8f8f8;
+  padding: 10px;
+  white-space: pre-wrap;
+  padding-right: 70px;
+}
+
+.copy-button {
+  position: absolute;
+  top: -13px;
+  right: 0px;
+  padding: 11px;
+  background-color: #4f4f4f;
+  color: #f8f8f8;
+  border: none;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background-color: #2b2b2b;
+}
+
+.olexe-get-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+
+#olexeOpenModalBtn {
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  color: #f8f8f8;
+  background-color: var(--olexe-blue);
+  cursor: pointer;
+}
+
+#olexeOpenModalBtn:hover {
+  background-color: rgb(7, 33, 68);
+  transition: background-color 200ms ease;
+}
+
+/* MODAL STYLE  */
+
+.olexe-modal {
+  display: none;
+  /* Hide the modal by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 3;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  /* Black with opacity */
+}
+
+/* Where the codebox is positioned */
+
+.olexe-modal-content {
+  background-color: #2b2b2b;
+  margin-left: calc(50% - 151px); 
+  margin-top: 22%;
+  margin-right: 33rem;
+  /* 15% from the top and centered */
+
+  border: 1px solid #888;
+  width: 30%;
+  /* 80% width */
+}
+
+
+/* Unused */
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.olexe-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.olexe-modal-close:hover,
+.olexe-modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

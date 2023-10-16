@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.2)), url(./layered-waves-haikei.svg);
+    background-size: cover;
+    
+    
+}
+
+
+/* end of resets  */
+
+.aside-container {
+    display: flex;
+}
+
+.olexe-aside-style {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 60, 60, 0.8);
+    /* float: left; */
+    height: 100vh;
+    padding: 0rem 0rem 0rem 5rem;
+}
+
+.olexe-aside-style h2 {
+    padding: 0em 4em 0em 0em;
+    text-align: center;
+    color: #fff;
+}
+
+
+/* element container  */
+
+.olexe-element-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-white {
+    color: #fff;
+}
+/* Naviation settings */
+
+.ul-lxi-nav {
+    text-align: right;
+    margin-top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+ul.ul-lxi-nav li {
+    list-style: none;
+}
+
+
+
+.main-menu > a {
+    font-size: 25px;
+    /* border-bottom: 1px solid #fff; */
+    margin-bottom: 10px;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Line animation under the first a tags that arent in child */
+
+.main-menu > a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    /* Adjust the position of the underline as desired */
+    left: 0;
+    width: 0;
+    height: 2px;
+    /* Adjust the height of the underline as desired */
+    background-color: #fff;
+    /* Adjust the color of the underline as desired */
+    transition: width 0.3s ease
+}
+
+.underlined > a::after {
+    width: 100%;
+}
+
+/* .main-menu > a.underline::after {
+    width: 100%;
+} */
+
+.main-menu > a:hover::after {
+    width: 100%;
+}
+
+
+li.main-menu a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    padding-right: 40px;
+}
+
+
+/* sub menu settings */
+
+/* This expands the submenu by increasing the height of the element */
+/* Sub menu settings  */
+
+.sub-menu {
+    /* text-align: left; */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.submenu-onclick {
+    max-height: 500px;
+    transition: max-height 0.7s ease-in;
+}
+
+.sub-menu-bold {
+    font-weight: bold;
+    padding-right: 0px;
+}
+
+.sub-menu li a:hover {
+    transition: 0.3ms;
+}
+
+.main-menu > a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    /* Adjust the position of the underline as desired */
+    left: 0;
+    width: 0;
+    height: 2px;
+    /* Adjust the height of the underline as desired */
+    background-color: #fff;
+    /* Adjust the color of the underline as desired */
+    transition: width 0.3s ease
+}
+
+.underlined > a::after {
+    width: 100%;
+}

@@ -1,0 +1,77 @@
+.olexe-flipContainer {
+    background-color: transparent;
+    width: 310px;
+    height: 500px;
+    perspective: 1000px;
+    margin-bottom: 15px;
+    /* Remove this if you don't want the 3D effect */
+}
+
+.olexe-cardContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border: 1px solid transparent;
+}
+
+
+.flip180 {
+    transform: rotateY(180deg);
+}
+
+.olexe-frontFlip,
+.olexe-backFlip {
+    border-radius: 15px;
+    box-shadow: var(--olexe-box-shadow-1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+.olexe-frontFlip {
+    background-color: var(--olexe-white);
+    color: black;
+}
+
+.olexe-frontFlip p,
+.olexe-backFlip p {
+    padding: 35px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+ 
+.olexe-backFlip {
+    background-color: var(--olexe-dark-pink);
+    color: var(--olexe-white);
+    transform: rotateY(180deg);
+}
+
+.olexe-flex {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .olexe-flex {
+        flex-direction: column;
+    }
+}
+
+.olexe-front-img {
+    width: 310px;
+    height: 500px;
+    perspective: 1000px;
+    border-radius: 15px;
+    object-fit: cover;
+}

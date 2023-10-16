@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Table</title>
+</head>
+<body>
+    <style>
+
+ .container {
+	 position: absolute;
+	 /* top: 50%;
+	 left: 50%;
+	 transform: translate(-50%,-50%);  */
+     backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 60, 60, 0.84);
+    border-radius: 10px; 
+    }
+    table {
+        width: 800px;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    th, td {
+        padding: 15px;
+        color: #fff;
+    }
+    th {
+        text-align: left;
+    }
+    thead th {
+        backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 60, 60, 0.94);
+    }
+
+    thead th:first-child {
+        border-radius: 10px 0px 0px 0px;
+    }
+    
+    thead th:last-child{
+        border-radius: 0px 10px 0px 0px;
+    }
+
+
+    tbody tr:hover {
+        background-color: rgba(255,255,255,0.3);
+    }
+
+    tbody td {
+
+        position: relative;
+    }
+    tbody td:hover:before {
+        content: "";
+        position: absolute;
+	 left: 0;
+	 right: 0;
+	 top: -9999px;
+	 bottom: -9999px;
+	 background-color: rgba(255,255,255,0.2);
+	 z-index: -1;
+    }
+    
+    </style>
+
+<div class="container">
+    <table>
+		<thead>
+			<tr class="glassmorphism-table">
+				<th>Column 1</th>
+				<th>Column 2</th>
+				<th>Column 3</th>
+				<th>Column 4</th>
+				<th>Column 5</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Cell 1</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+				<td>Cell 5</td>
+			</tr>
+			<tr>
+				<td>Cell 1</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+				<td>Cell 5</td>
+			</tr>
+			<tr>
+				<td>Cell 1</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+				<td>Cell 5</td>
+			</tr>
+			<tr>
+				<td>Cell 1</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+				<td>Cell 5</td>
+			</tr>
+			<tr>
+				<td>Cell 1</td>
+				<td>Cell 2</td>
+				<td>Cell 3</td>
+				<td>Cell 4</td>
+				<td>Cell 5</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div style="position: absolute; top: 66%" class="olexe-get-code-container">
+    <button id="olexeOpenModalBtn">Get the code</button>
+</div>
+
+        <!-- MODAL HTML -->
+
+
+
+        <div id="olexe-modal" class="olexe-modal">
+            <div class="olexe-modal-content">
+                <!-- <span class="olexe-modal-close">&times;</span> -->
+                <div class="code-box">
+                    <pre><code>Lorem ipsum dolor sit amet consectetur, adipisicing elit. N</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+
+
+<script>
+      // GET CODE SCRIPT 
+
+
+            // Get the copy button element
+            var copyButton = document.querySelector('.copy-button');
+
+            // Add a click event listener to the copy button
+            copyButton.addEventListener('click', function () {
+                // Get the code element containing the code to be copied
+                var codeElement = copyButton.previousElementSibling.querySelector('code');
+
+                // Create a range object for the code element
+                var range = document.createRange();
+                range.selectNode(codeElement);
+
+                // Select the range
+                window.getSelection().removeAllRanges(); // clear any existing selection
+                window.getSelection().addRange(range);
+
+                // Copy the selected text to the clipboard
+                document.execCommand('copy');
+
+                // Deselect the range
+                window.getSelection().removeAllRanges();
+
+                // Update the text of the copy button to show that the code has been copied
+                copyButton.innerHTML = 'Copied!';
+
+                // Reset the text of the copy button after 2 seconds
+                setTimeout(function () {
+                    copyButton.innerHTML = 'Copy';
+                }, 2000);
+            });
+
+            // MODAL SCRIPT
+
+            // Get the modal element
+            var olexeModal = document.getElementById("olexe-modal");
+
+            // Get the button that opens the modal
+            var olexeOpenModalBtn = document.getElementById("olexeOpenModalBtn");
+
+            // Get the <span> element that closes the modal
+            var olexeCloseBtn = document.getElementsByClassName("olexe-modal-close")[0];
+
+            // Open the modal when the button is clicked
+            olexeOpenModalBtn.onclick = function () {
+                olexeModal.style.display = "block";
+            };
+
+            // Close the modal when the <span> (x) is clicked
+            // olexeCloseBtn.onclick = function () {
+            //   olexeModal.style.display = "none";
+            // };
+
+            // Close the modal when the user clicks outside of it
+            window.onclick = function (event) {
+                if (event.target == olexeModal) {
+                    olexeModal.style.display = "none";
+                }
+            };
+</script>
+</body>
+</html>
